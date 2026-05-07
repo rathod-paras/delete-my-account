@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Deletion Request</title>
+  <meta name="description" content="Request account deletion for games published by Rathod Paras.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f7fb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    .page-wrapper {
+      width: 100%;
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      padding: 34px 16px 24px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: #e8f0ff;
+      color: #1d4ed8;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 38px;
+      line-height: 1.15;
+      color: #111827;
+    }
+
+    .subtitle {
+      max-width: 720px;
+      margin: 0 auto;
+      color: #4b5563;
+      font-size: 17px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      box-shadow: 0 12px 35px rgba(17, 24, 39, 0.08);
+      overflow: hidden;
+    }
+
+    .card-inner {
+      padding: 26px;
+    }
+
+    h2 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      color: #111827;
+    }
+
+    .description {
+      margin: 0 0 22px;
+      color: #6b7280;
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: 700;
+      color: #374151;
+    }
+
+    .required {
+      color: #dc2626;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      font-size: 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111827;
+      background: #ffffff;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.16);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .help-text {
+      margin-top: 5px;
+      color: #6b7280;
+      font-size: 13px;
+    }
+
+    .checkbox-box {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 13px;
+      margin-bottom: 14px;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f9fafb;
+    }
+
+    .checkbox-box input {
+      width: 18px;
+      height: 18px;
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    .checkbox-box label {
+      margin: 0;
+      font-weight: 600;
+      font-size: 14px;
+      color: #374151;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .submit-btn,
+    .email-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 13px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+    }
+
+    .submit-btn {
+      background: #2563eb;
+      color: #ffffff;
+    }
+
+    .submit-btn:hover {
+      background: #1d4ed8;
+    }
+
+    .email-btn {
+      background: #ffffff;
+      color: #2563eb;
+      border: 1px solid #d1d5db;
+    }
+
+    .email-btn:hover {
+      background: #f9fafb;
+    }
+
+    .info-list {
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .info-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .info-list li:last-child {
+      border-bottom: none;
+    }
+
+    .info-list strong {
+      display: block;
+      color: #111827;
+      margin-bottom: 3px;
+    }
+
+    .info-list span {
+      display: block;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    .note {
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 12px;
+      background: #fff7ed;
+      color: #9a3412;
+      font-size: 14px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 24px 12px 8px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    .hidden-field {
+      display: none;
+    }
+
+    @media (max-width: 760px) {
+      .page-wrapper {
+        padding: 14px;
+      }
+
+      .header {
+        padding-top: 24px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .subtitle {
+        font-size: 15px;
+      }
+
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card-inner {
+        padding: 20px;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .submit-btn,
+      .email-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <main class="container">
+      <header class="header">
+        <div class="tag">Account Deletion Request</div>
+        <h1>Request deletion of your game account</h1>
+        <p class="subtitle">
+          Use this page to request deletion of your account and associated data for any game published by Rathod Paras on Google Play.
+        </p>
+      </header>
+
+      <section class="content-grid">
+        <div class="card">
+          <div class="card-inner">
+            <h2>Submit your request</h2>
+            <p class="description">
+              Please provide the game name and your email address. User ID and reason are optional.
+            </p>
+
+            <form action="https://formsubmit.co/app.parasrathod@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="Account Deletion Request">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="Request Type" value="Account deletion request">
+              <input type="hidden" name="Developer Email" value="app.parasrathod@gmail.com">
+
+              <input class="hidden-field" type="text" name="_honey" tabindex="-1" autocomplete="off">
+
+              <div class="field">
+                <label for="gameName">Game name <span class="required">*</span></label>
+                <input
+                  type="text"
+                  id="gameName"
+                  name="Game Name"
+                  placeholder="Enter the game name"
+                  required
+                >
+                <div class="help-text">Please enter the exact app or game name shown on Google Play.</div>
+              </div>
+
+              <div class="field">
+                <label for="email">Your email address <span class="required">*</span></label>
+                <input
+                  type="email"
+                  id="email"
+                  name="User Email"
+                  placeholder="your@email.com"
+                  required
+                >
+                <div class="help-text">Use the email linked with your game account, if possible.</div>
+              </div>
+
+              <div class="field">
+                <label for="userId">User ID / Player ID</label>
+                <input
+                  type="text"
+                  id="userId"
+                  name="User ID"
+                  placeholder="Optional"
+                >
+              </div>
+
+              <div class="field">
+                <label for="reason">Reason for account deletion</label>
+                <textarea
+                  id="reason"
+                  name="Reason"
+                  placeholder="Optional"
+                ></textarea>
+              </div>
+
+              <div class="checkbox-box">
+                <input type="checkbox" id="confirmEmail" name="Email Confirmation" value="Confirmed" required>
+                <label for="confirmEmail">
+                  I confirm that the email address provided belongs to me and can be used to contact me about this request.
+                </label>
+              </div>
+
+              <div class="checkbox-box">
+                <input type="checkbox" id="confirmDelete" name="Deletion Confirmation" value="Confirmed" required>
+                <label for="confirmDelete">
+                  I understand that deleting my account may permanently remove my game progress, saved data, and account-related information.
+                </label>
+              </div>
+
+              <div class="actions">
+                <button class="submit-btn" type="submit">Submit deletion request</button>
+                <a
+                  class="email-btn"
+                  href="mailto:app.parasrathod@gmail.com?subject=Account%20Deletion%20Request&body=Game%20Name%3A%0AEmail%20Address%3A%0AUser%20ID%20Optional%3A%0AReason%20Optional%3A"
+                >
+                  Email manually
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <aside class="card">
+          <div class="card-inner">
+            <h2>What happens next?</h2>
+            <p class="description">
+              Your request will be sent to <strong>app.parasrathod@gmail.com</strong>.
+            </p>
+
+            <ul class="info-list">
+              <li>
+                <strong>1. Request review</strong>
+                <span>We will review your game name, email address, and optional user ID.</span>
+              </li>
+              <li>
+                <strong>2. Account data deletion</strong>
+                <span>Eligible account data linked to the selected game will be deleted where technically possible.</span>
+              </li>
+              <li>
+                <strong>3. Confirmation if needed</strong>
+                <span>If more details are required, we may contact you by email.</span>
+              </li>
+            </ul>
+
+            <div class="note">
+              Some limited records may be retained if required for legal, security, fraud prevention, payment, tax, or compliance reasons.
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <footer class="footer">
+        © <span id="year"></span> Rathod Paras. Account deletion page for Google Play apps.
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
